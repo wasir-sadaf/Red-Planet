@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0b0e" />
+
+  <title>Mars Explorer | Discover the Red Planet</title>
+
+  <link rel="stylesheet" href="./style.css" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Mars Explorer home">
+      <span class="brand-icon">●</span>
+      <span>MARS<span class="brand-light">EXPLORER</span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="active" href="#overview">Overview</a>
+      <a href="#surface">Surface</a>
+      <a href="#facts">Planet Data</a>
+      <a href="#locations">Locations</a>
+    </nav>
+
+    <div class="mission-status">
+      <span class="status-dot"></span>
+      <span>MISSION CONTROL</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="eyebrow-line"></span>
+          THE FOURTH PLANET
+        </p>
+
+        <h1>Explore the<br /><span>Red Planet.</span></h1>
+
+        <p class="hero-description">
+          A closer look at our neighboring world. Explore the Martian
+          surface using imagery from NASA's Viking global color mosaic.
+        </p>
+
+        <a class="explore-button" href="#surface">
+          Explore Mars <span aria-hidden="true">↘</span>
+        </a>
+      </div>
+
+      <div class="hero-meta">
+        <div>
+          <span class="meta-label">CELESTIAL BODY</span>
+          <span class="meta-value">MARS / MARS</span>
+        </div>
+        <div>
+          <span class="meta-label">DATA SOURCE</span>
+          <span class="meta-value">NASA VIKING MOSAIC</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="planet-section" id="surface">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / INTERACTIVE VIEWER</p>
+          <h2>The Martian Surface</h2>
+        </div>
+        <p class="section-note">DRAG TO ROTATE · SCROLL TO ZOOM</p>
+      </div>
+
+      <div class="planet-panel">
+        <div id="mars-container" aria-label="Interactive 3D model of Mars">
+          <div class="viewer-loading" id="viewer-loading">
+            <span class="loading-spinner"></span>
+            <span id="loading-message">INITIALIZING MARS VIEWER...</span>
+          </div>
+        </div>
+
+        <div class="viewer-top-left">
+          <span class="live-dot"></span>
+          <span id="view-status">INITIALIZING</span>
+        </div>
+
+        <div class="viewer-top-right">
+          <span>NASA / VIKING</span>
+          <span>GLOBAL COLOR MOSAIC</span>
+        </div>
+
+        <div class="viewer-bottom-left">
+          <span class="coordinate-label">PLANETARY BODY</span>
+          <strong>MARS</strong>
+          <span>Mean radius · 3,389.5 km</span>
+        </div>
+
+        <div class="viewer-controls">
+          <button id="rotation-toggle" class="control-button" type="button">
+            <span id="rotation-icon" aria-hidden="true">Ⅱ</span>
+            <span id="rotation-label">Pause Rotation</span>
+          </button>
+          <button id="reset-view" class="control-button" type="button">
+            Reset View ↺
+          </button>
+        </div>
+
+        <div class="viewer-coordinates">
+          <span>LAT <span id="latitude">0.0°</span></span>
+          <span>LON <span id="longitude">0.0°</span></span>
+        </div>
+      </div>
+
+      <p class="data-caption">
+        Surface imagery: Mars Viking global color mosaic, 925 m/pixel
+        source dataset. Display texture is downsampled for web performance.
+      </p>
+    </section>
+
+    <section class="facts-section" id="facts">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">02 / PLANETARY PROFILE</p>
+          <h2>Mars by the Numbers</h2>
+        </div>
+      </div>
+
+      <div class="facts-grid">
+        <article class="fact-card">
+          <span class="fact-label">MEAN DIAMETER</span>
+          <strong>6,779 <small>km</small></strong>
+          <p>About half Earth's diameter</p>
+        </article>
+
+        <article class="fact-card">
+          <span class="fact-label">AVERAGE TEMPERATURE</span>
+          <strong>−63 <small>°C</small></strong>
+          <p>Cold, thin atmosphere</p>
+        </article>
+
+        <article class="fact-card">
+          <span class="fact-label">DISTANCE FROM SUN</span>
+          <strong>228 <small>million km</small></strong>
+          <p>Average orbital distance</p>
+        </article>
+
+        <article class="fact-card">
+          <span class="fact-label">LENGTH OF A SOL</span>
+          <strong>24.6 <small>hours</small></strong>
+          <p>One Martian solar day</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="locations-section" id="locations">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">03 / SURFACE FEATURES</p>
+          <h2>Worlds Within a World</h2>
+        </div>
+      </div>
+
+      <div class="locations-grid">
+        <article class="location-card">
+          <span class="location-number">01</span>
+          <h3>Olympus Mons</h3>
+          <p>
+            A giant shield volcano and the tallest known volcano in the
+            Solar System.
+          </p>
+          <span class="location-type">VOLCANO</span>
+        </article>
+
+        <article class="location-card">
+          <span class="location-number">02</span>
+          <h3>Valles Marineris</h3>
+          <p>
+            An immense canyon system stretching thousands of kilometres
+            across the Martian surface.
+          </p>
+          <span class="location-type">CANYON SYSTEM</span>
+        </article>
+
+        <article class="location-card">
+          <span class="location-number">03</span>
+          <h3>Gale Crater</h3>
+          <p>
+            An impact crater explored by NASA's Curiosity rover, with
+            Mount Sharp at its center.
+          </p>
+          <span class="location-type">IMPACT CRATER</span>
+        </article>
+
+        <article class="location-card">
+          <span class="location-number">04</span>
+          <h3>Jezero Crater</h3>
+          <p>
+            An ancient lake-basin site explored by NASA's Perseverance rover.
+          </p>
+          <span class="location-type">ANCIENT LAKE BASIN</span>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#overview">
+      <span class="brand-icon">●</span>
+      <span>MARS<span class="brand-light">EXPLORER</span></span>
+    </a>
+    <p>An independent interactive planetary visualization.</p>
+    <span>IMAGINE · EXPLORE · DISCOVER</span>
+  </footer>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
